@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <script src="snake.js"></script>
+        <script>
+            window.onload = () => {
+                canvas = document.getElementById("gc");
+                context = canvas.getContext("2d");
+                snake = new Snake(context, canvas);
+                snake.init();
+                document.addEventListener('keydown', (evt) => {
+                    if(!snake.running) {
+                        for(let key in snake.keybindings) {
+                            if(snake.keybindings[key] == evt.keyCode) {
+                                snake.start();
+                            }
+                        }
+                    }
+                });
+            };
+        </script>
+    </head>
+    <body>
+        <canvas id="gc" width="800" height="593" tabindex="1"></canvas>
+    </body>
+</html>
